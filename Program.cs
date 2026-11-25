@@ -44,7 +44,16 @@ class Program
     public static void CalculateRemaininghealth()
     {
         Bosshealth -= weaponDamage;
-        Console.WriteLine(" Le boss est à " + Bosshealth + " PV");
+        if (Bosshealth <= 0)
+        {
+            Bosshealth = 0;
+            Console.WriteLine(" Le boss est à " + Bosshealth + " PV");
+        }
+        else
+        {
+            Console.WriteLine(" Le boss est à " + Bosshealth + " PV");
+        }
+       
         
     }
 
@@ -62,11 +71,12 @@ class Program
     static void Main(string[] args)
     {
         Bosshealth = 150;
-        CalculateWeaponDamage();
-        CalculateRemaininghealth();
-        DisplayBossstatus();
-        CalculateWeaponDamage();
-        CalculateRemaininghealth();
-        DisplayBossstatus();
+        while (Bosshealth > 0 )
+        {
+            CalculateWeaponDamage();
+            CalculateRemaininghealth();
+            DisplayBossstatus();
+        }
+        
     }
 }
