@@ -32,8 +32,41 @@
  */
 class Program
 {
+    public static int weaponDamage;
+    public static int Bosshealth ;
+    
+    public static void CalculateWeaponDamage()
+    {
+        weaponDamage = 40;
+        Console.WriteLine(weaponDamage + " Dégats infligés");
+    }
+
+    public static void CalculateRemaininghealth()
+    {
+        Bosshealth -= weaponDamage;
+        Console.WriteLine(" Le boss est à " + Bosshealth + " PV");
+        
+    }
+
+    public static void DisplayBossstatus()
+    {
+        if (Bosshealth <= 0)
+        {
+            Console.WriteLine("Félicitations, le boss est vaincu !");
+        }
+        else
+        {
+            Console.WriteLine("Le boss est toujours vivant !");
+        }
+    }
     static void Main(string[] args)
     {
-        
+        Bosshealth = 150;
+        CalculateWeaponDamage();
+        CalculateRemaininghealth();
+        DisplayBossstatus();
+        CalculateWeaponDamage();
+        CalculateRemaininghealth();
+        DisplayBossstatus();
     }
 }
